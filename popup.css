@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 240px;
+}
+
+main p{
+    margin: 2px;
+    padding: 2px;
+}
+main ul {
+    display: flex;
+}
+main ul li{
+    list-style-type: none;
+}
+main ul li a img{
+    height: 36px;
+    width: 36px;
+}
+main a{
+    display: block;
+    text-decoration: none;
+
+    margin: 2px;
+}

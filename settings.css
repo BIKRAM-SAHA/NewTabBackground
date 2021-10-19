@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 240px;
+}
+
+main form{
+    display: flex;
+    flex-direction: column;
+}
+
+main form .form-group{
+    margin: 3px;
+}
