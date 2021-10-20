@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "NTExt",
-    "description": "customize new tab background image",
-    "version": "1.0.0",
+    "description": "customize new tab background image. (!important: image size should be < 5MB)",
+    "version": "1.1.0",
     "icons":{
         "128":"img/218icon.png",
         "48":"img/48icon.png",
@@ -19,5 +19,6 @@
     },
     "chrome_url_overrides": {
         "newtab": "newtab.html"
-    }
+    },
+    "options_page":"settings.html"
 }

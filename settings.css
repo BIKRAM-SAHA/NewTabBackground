@@ -15,3 +15,7 @@ main form{
 main form .form-group{
     margin: 3px;
 }
+
+.hide{
+    display:none;
+}

@@ -1,0 +1,59 @@
+:root {
+    --clockColor:#87CBEB
+}
+
+@font-face {
+    font-family: digital;
+    src: url(/fonts/digital-7\ \(mono\).ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    height: 100vh;
+    width: 100vw;
+}
+
+/* clock */
+.clock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.clockUI{
+    font-family: 'digital';
+    margin: 20px;
+    position: absolute;
+    font-size: 6rem;
+    color:white;
+    text-shadow: 0 0 10px var(--clockColor);
+}
+.clockUI:after{
+    content: attr(data-after);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    color: var(--clockColor);
+    filter: blur(2px);
+}
+.clockUI:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: var(--clockColor);
+    opacity: 0.5;
+    filter: blur(65px);
+}
