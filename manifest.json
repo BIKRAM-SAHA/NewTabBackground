@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "NTExt",
     "description": "customize new tab background image. (!important: image size should be < 5MB)",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "icons":{
         "128":"img/218icon.png",
         "48":"img/48icon.png",

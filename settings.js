@@ -3,7 +3,7 @@ clock=document.querySelector(`.clock`)
 clockColor=document.querySelector(`.clock-color`)
 clockPosition=document.querySelector(`.clock-position`)
 submit=document.querySelector(`input[type="submit"]`)
-defaultColor='#87CBEB'
+defaultColor='#31dd3c'
 
 clockColor.value=defaultColor
 
