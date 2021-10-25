@@ -3,6 +3,14 @@ clock=document.querySelector(".clock")
 clockUI=document.querySelector(".clockUI")
 intervalID=0
 
+
+//if no data in localStorage then default to these
+clockObj={}
+clockObj.color='#31dd3c'
+clockObj.position='center-center'
+clockObj.value=`${clock.checked}`
+
+
 // fix delay in showing time when new tab opened 
 function padZero(num) {
     let s = num+"";
@@ -80,15 +88,15 @@ function showClock(Obj){
 
 window.addEventListener("DOMContentLoaded", function(){
     url=localStorage.bgimg
-    clockObj=JSON.parse(localStorage.clock)
+    if(localStorage.clock != null){clockObj=JSON.parse(localStorage.clock)}
     changeBackground(url)
     showClock(clockObj)
 })
 
 window.addEventListener("storage", function(e){
     if (e.key==='bgimg'|e.key==='clock'){
-        url=localStorage.bgimg
-        clockObj=JSON.parse(localStorage.clock)
+        if(localStorage.clock != null){clockObj=JSON.parse(localStorage.clock)}
+        if(localStorage.bgimg != null){url=localStorage.bgimg}
         changeBackground(url)
         showClock(clockObj)
     }
