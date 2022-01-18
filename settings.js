@@ -1,37 +1,42 @@
 //imgs have an id so it is defined in JS execution environment by default
-clock=document.querySelector(`.clock`)
-clockColor=document.querySelector(`.clock-color`)
-clockPosition=document.querySelector(`.clock-position`)
-submit=document.querySelector(`input[type="submit"]`)
-defaultColor='#31dd3c'
+clock = document.querySelector(`.clock`)
+clockColor = document.querySelector(`.clock-color`)
+clockPosition = document.querySelector(`.clock-position`)
+submit = document.getElementById(`submitBtn`)
+defaultColor = '#31dd3c'
+clockColor.value = defaultColor
 
-clockColor.value=defaultColor
-
-clock.addEventListener("click",function(){
-    clockProperties=document.getElementsByClassName("clock-property")
-    clockProperties=Array.from(clockProperties)
-    clockProperties.forEach((elem)=>{elem.classList.toggle("hide")})
+clock.addEventListener("click", function () {
+    clockProperties = document.getElementsByClassName("clock-property")
+    clockProperties = Array.from(clockProperties)
+    clockProperties.forEach((elem) => { elem.classList.toggle("hide") })
 })
 
 
-submit.addEventListener("click",function(e){
+submit.addEventListener("click", function (e) {
     e.preventDefault()
-    reader= new FileReader()
-    reader.onload=function(){
-        localStorage.bgimg=reader.result
-        clockObj={}
-        clockObj.color='#87CBEB'
-        clockObj.position='center-center'
-        clockObj.value=`${clock.checked}`
+    reader = new FileReader()
+    reader.onload = function () {
+        localStorage.bgimg = reader.result
+        clockObj = {}
+        clockObj.color = '#87CBEB'
+        clockObj.position = 'center-center'
+        clockObj.value = `${clock.checked}`
 
-        if(clock.checked){
-            clockObj.color=clockColor.value
-            clockObj.position=clockPosition.value
+        if (clock.checked) {
+            clockObj.color = clockColor.value
+            clockObj.position = clockPosition.value
         }
-        localStorage.clock=JSON.stringify(clockObj)
+        localStorage.clock = JSON.stringify(clockObj)
     }
-    if(img.files[0]){
+    if (img.files[0]) {
         reader.readAsDataURL(img.files[0])
     }
 })
 
+//taking name of choosen file and displaying
+let fileName = document.getElementById('file-name');
+img.addEventListener('change', function (event) {
+    let upload = event.target.files[0].name;
+    fileName.innerText = upload;
+})
