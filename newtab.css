@@ -1,11 +1,12 @@
 :root {
-    --clockColor:#31dd3c
+    --clockColor:#87CBEB
 }
 
 @font-face {
     font-family: digital;
     src: url(/fonts/digital-7\ \(mono\).ttf);
 }
+
 *{
     margin: 0;
     padding: 0;

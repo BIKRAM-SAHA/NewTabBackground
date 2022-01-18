@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,36 +8,52 @@
     <title>NTExt Settings</title>
     <link rel="stylesheet" href="settings.css">
 </head>
+
 <body>
     <h1>Settings</h1>
+
     <main>
         <form>
             <div class="form-group">
-                <label for="img-files">Select images</label>
-                <input type="file" name="img-files" id="img">
+                <div><strong> Change Image?</strong></div>
+                <input type="file" name="img-files" id="img" accept="image/*">
+                <label for="img" id="choose">Select Image</label>
+                <div id="file-choose">
+                    <strong>Choosen File:</strong>
+                    <span id="file-name">None</span>
+                </div>
             </div>
             <div class="form-group">
-                <label for="clock">Add Clock?</label>
-                <input type="checkbox" name="clock" class="clock"><br>
-                <label for="clock-color" class="clock-property hide">Neon Color</label>
-                <input type="color" name="clock-color" class="clock-color clock-property hide"><br>
-                <Select name="clock-position" class="clock-position clock-property hide">
-                    <option value="top-left">Top-Left</option>
-                    <option value="top-center">Top-Center</option>
-                    <option value="top-right">Top-Right</option>
-                    <option value="center-right">Center-Right</option>
-                    <option value="center-center">Center-Center</option>
-                    <option value="center-left">Center-Left</option>
-                    <option value="bottom-left">Bottom-Left</option>
-                    <option value="bottom-center">Bottom-Center</option>
-                    <option value="bottom-right">Bottom-Right</option>
-                </Select>
+                <div class="clock-box">
+                    <label for="clock"><strong>Add Clock 🕛? :-</strong></label>
+                    <input type="checkbox" name="clock" class="clock">
+                </div>
+                <div class="color-of-clock">
+                    <label for="clock-color" class="clock-property hide"><strong>Neon Color :-</strong></label>
+                    <input type="color" name="clock-color" class="clock-color clock-property hide">
+                </div>
+                <div class="form-group clock-property hide">
+                    <span><strong>Position :-</strong></span>
+                    <Select name="clock-position" class="clock-position clock-property hide">
+                        <option value="top-left">Top-Left</option>
+                        <option value="top-center">Top-Center</option>
+                        <option value="top-right">Top-Right</option>
+                        <option value="center-right">Center-Right</option>
+                        <option value="center-center">Center-Center</option>
+                        <option value="center-left">Center-Left</option>
+                        <option value="bottom-left">Bottom-Left</option>
+                        <option value="bottom-center">Bottom-Center</option>
+                        <option value="bottom-right">Bottom-Right</option>
+                    </Select>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit">
+            <div class="form-group" id="submit">
+                <a id="submitBtn">Submit</a>
             </div>
         </form>
     </main>
+
     <script src="settings.js"></script>
 </body>
+
 </html>

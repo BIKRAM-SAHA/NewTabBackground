@@ -4,18 +4,125 @@
     box-sizing: border-box;
 }
 body{
-    width: 240px;
+    width: 250px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;   
+    color: #161b22;
+    border: 1px solid #161b22;
+	transition: background 0.2s linear;
+    position: relative;
 }
-
+h1{
+    font-size: 30px;
+    text-decoration: underline;
+    margin: 10px 3px 10px 10px;
+    text-align: center;
+    padding-right: 50px;
+}
 main form{
     display: flex;
     flex-direction: column;
 }
-
-main form .form-group{
-    margin: 3px;
+main form .form-group:nth-child(1) div:nth-child(1){
+    margin-bottom: 10px;
 }
+main form .form-group div#file-choose{
+    margin-top: 9px;
+    margin-bottom: 10px;
+}
+main form .form-group:nth-child(1){
+    flex-direction: row;
+    width: 100%;
+}
+main form .form-group:nth-child(1) label{
+    border: 1px solid;
+    cursor: pointer;
+    font-size: 16.5px;
+    padding: 5px 7px;
+    border-radius: 5px;
+}
+main form .form-group:nth-child(1) label:hover{
+    color: #161b22;
+    transition: .5s;
+    background: #eee2ff;
+}
+main form .form-group:nth-child(1) input{
+    display: none;
+}
+main form .form-group:nth-child(1) div{
+    text-align: start;
+    font-size: 16.5px;
+}
+main form .form-group:nth-child(1), main form .form-group:nth-child(2){
+    padding-left: 5px;
+}
+main form .form-group:nth-child(2) div.clock-box{
+    display: flex;
+    align-items: center;
+    font-size: 16.5px;
+}
+main form .form-group:nth-child(2) div.clock-box input{
+    height: 16px;
+    width: 16px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+main form .form-group:nth-child(2) div.color-of-clock{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+main form .form-group:nth-child(2) div.color-of-clock label strong{
+    margin-right: 10px;
+    font-size: 16.5px;
+}
+main form .form-group:nth-child(2) div.color-of-clock input{
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 24px;
+}
+main form .form-group:nth-child(2) .form-group{
+    margin-top: 5px;
+}
+main form .form-group:nth-child(2) .form-group span{
+    margin-right: 10px;
+    font-size: 16.5px;
+}
+main form .form-group:nth-child(2) .form-group select{
+    height:20px;
+    padding-top: 2px;
+    cursor: pointer;
+}
+main form .form-group:nth-child(2) .form-group select:focus{
+    outline: none;
+}
+main form .form-group:nth-child(3)#submit{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+main form .form-group:nth-child(3)#submit a{
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    border: 1px solid;
+    padding: 5px 7px;
+    cursor: pointer;
 
+}
+main form .form-group:nth-child(3)#submit a:hover{
+    color: #161b22;
+    transition: .5s;
+    background: #eee2ff;
+}
 .hide{
     display:none;
 }
