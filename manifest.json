@@ -4,15 +4,16 @@
     "description": "customize new tab background image. (!important: image size should be < 5MB)",
     "version": "1.2.0",
     "icons": {
-        "128": "img/218icon.png",
-        "48": "img/48icon.png",
-        "16": "img/16icon.png"
+        "128": "img/icon128.png",
+        "48": "img/icon48.png",
+        "32": "img/icon32.png",
+        "16": "img/icon16.png"
     },
     "action": {
         "default_icon": {
             "128": "img/icon128.png",
             "48": "img/icon48.png",
-            "32": "img/icon48.png",
+            "32": "img/icon32.png",
             "16": "img/icon16.png"
         },
         "default_title": "NTExt",
