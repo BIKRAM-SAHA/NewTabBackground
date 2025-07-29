@@ -1,24 +1,25 @@
 {
     "manifest_version": 3,
-    "name": "NTExt",
+    "name": "New Tab Background",
     "description": "customize new tab background image. (!important: image size should be < 5MB)",
-    "version": "1.1.1",
-    "icons":{
-        "128":"img/218icon.png",
-        "48":"img/48icon.png",
-        "16":"img/16icon.png"
+    "version": "1.2.0",
+    "icons": {
+        "128": "img/218icon.png",
+        "48": "img/48icon.png",
+        "16": "img/16icon.png"
     },
     "action": {
-        "default_icon": {                
-          "128": "img/218icon2.png",     
-          "48": "img/48icon2.png",     
-          "16": "img/16icon2.png"      
+        "default_icon": {
+            "128": "img/icon128.png",
+            "48": "img/icon48.png",
+            "32": "img/icon48.png",
+            "16": "img/icon16.png"
         },
-        "default_title": "NTExt",  
-        "default_popup": "popups/index.html"    
+        "default_title": "NTExt",
+        "default_popup": "popups/index.html"
     },
     "chrome_url_overrides": {
         "newtab": "popups/newtab/newtab.html"
     },
-    "options_page":"popups/settings/settings.html"
+    "options_page": "popups/settings/settings.html"
 }
