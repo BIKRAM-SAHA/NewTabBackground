@@ -1,37 +1,36 @@
-//imgs have an id so it is defined in JS execution environment by default
 clock = document.querySelector(`.clock`);
 clockColor = document.querySelector(`.clock-color`);
 clockPosition = document.querySelector(`.clock-position`);
-defaultColor = '#31dd3c';
+defaultColor = "#31dd3c";
 clockColor.value = defaultColor;
 
 submit = document.getElementById(`submitBtn`);
 
-clock.addEventListener('click', function () {
-	clockProperties = document.getElementsByClassName('clock-property');
+clock.addEventListener("click", function () {
+	clockProperties = document.getElementsByClassName("clock-property");
 	clockProperties = Array.from(clockProperties);
 	clockProperties.forEach((elem) => {
-		elem.classList.toggle('hide');
+		elem.classList.toggle("hide");
 	});
 });
 
-submit.addEventListener('click', function (e) {
+submit.addEventListener("click", function (e) {
 	e.preventDefault();
 	reader = new FileReader();
 	reader.onload = function () {
-        localStorage.name = fileName.innerText;
-		localStorage.bgimg = reader.result;
+		localStorage.setItem("name", fileName.innerText);
+		localStorage.setItem("bgimg", reader.result);
 
 		clockObj = {};
-		clockObj.color = '#87CBEB';
-		clockObj.position = 'center-center';
+		clockObj.color = "#87CBEB";
+		clockObj.position = "center-center";
 		clockObj.value = `${clock.checked}`;
 
 		if (clock.checked) {
 			clockObj.color = clockColor.value;
 			clockObj.position = clockPosition.value;
 		}
-		localStorage.clock = JSON.stringify(clockObj);
+		localStorage.setItem("clock", JSON.stringify(clockObj));
 	};
 	if (img.files[0]) {
 		reader.readAsDataURL(img.files[0]);
@@ -39,16 +38,20 @@ submit.addEventListener('click', function (e) {
 });
 
 //taking name of choosen file and displaying
-let fileName = document.getElementById('file-name');
-img.addEventListener('change', function (event) {
+
+//imgs have an id so it is defined in JS execution environment by default
+let fileName = document.getElementById("file-name");
+img.addEventListener("change", function (event) {
 	let upload = event.target.files[0].name;
 	fileName.innerText = upload;
 });
 
-function onload(){
-    retrieve()
+function retrieve() {
+	fileName.innerText = localStorage.getItem("name") || "none";
 }
 
-function retrieve(){
-    
+function onLoad() {
+	retrieve();
 }
+
+onLoad();
