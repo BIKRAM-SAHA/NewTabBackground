@@ -1,4 +1,4 @@
-const fileName = document.getElementById("file-name").innerText;
+const fileName = document.getElementById("file-name");
 
 const img = document.getElementById("img");
 
@@ -11,12 +11,12 @@ const submit = document.getElementById(`submitBtn`);
 
 // Retrieving the name of the previously (if any) selected image
 function retrieveName() {
-	fileName = localStorage.getItem("name") || "None";
+	fileName.innerText = localStorage.getItem("name") || "None";
 }
 
 // Displaying the name of the selected image
 function imgName(e) {
-	fileName = e.target.files[0]?.name || "None";
+	fileName.innerText = e.target.files[0]?.name || "None";
 }
 
 // Toggling clock properties if needed
@@ -32,7 +32,7 @@ function onSubmit(e) {
 
 	const reader = new FileReader();
 	reader.onload = function () {
-		localStorage.setItem("name", fileName);
+		localStorage.setItem("name", fileName.innerText);
 		localStorage.setItem("bgimg", reader.result);
 
 		const clockObj = {
