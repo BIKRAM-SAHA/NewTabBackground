@@ -1,57 +1,59 @@
-clock = document.querySelector(`.clock`);
-clockColor = document.querySelector(`.clock-color`);
-clockPosition = document.querySelector(`.clock-position`);
-defaultColor = "#31dd3c";
-clockColor.value = defaultColor;
+const fileName = document.getElementById("file-name");
 
-submit = document.getElementById(`submitBtn`);
+const img = document.getElementById("img");
 
-clock.addEventListener("click", function () {
-	clockProperties = document.getElementsByClassName("clock-property");
-	clockProperties = Array.from(clockProperties);
-	clockProperties.forEach((elem) => {
-		elem.classList.toggle("hide");
-	});
-});
+const clock = document.querySelector(`.clock`);
+const clockColor = document.querySelector(`.clock-color`);
+const clockPosition = document.querySelector(`.clock-position`);
+const defaultColor = "#31dd3c";
 
-submit.addEventListener("click", function (e) {
+const submit = document.getElementById(`submitBtn`);
+
+// Retrieving the name of the previously (if any) selected image
+function retrieveName() {
+	fileName.innerText = localStorage.getItem("name") || "None";
+}
+
+// Displaying the name of the selected image
+function imgName(e) {
+	fileName.innerText = e.target.files[0]?.name || "None";
+}
+
+// Toggling clock properties if needed
+function toggleClockProperties() {
+	document.querySelectorAll(".clock-property").forEach((e) => e.classList.toggle("hide"));
+}
+
+// On submit saving the details in local storage
+function onSubmit(e) {
 	e.preventDefault();
-	reader = new FileReader();
+
+	if (!img.files[0]) return;
+
+	const reader = new FileReader();
 	reader.onload = function () {
 		localStorage.setItem("name", fileName.innerText);
 		localStorage.setItem("bgimg", reader.result);
 
-		clockObj = {};
-		clockObj.color = "#87CBEB";
-		clockObj.position = "center-center";
-		clockObj.value = `${clock.checked}`;
-
-		if (clock.checked) {
-			clockObj.color = clockColor.value;
-			clockObj.position = clockPosition.value;
-		}
+		const clockObj = {
+			color: clock.checked ? clockColor.value : "#87CBEB",
+			position: clock.checked ? clockPosition.value : "center-center",
+			value: `${clock.checked}`,
+		};
 		localStorage.setItem("clock", JSON.stringify(clockObj));
 	};
-	if (img.files[0]) {
-		reader.readAsDataURL(img.files[0]);
-	}
-});
-
-//taking name of choosen file and displaying
-
-//imgs have an id so it is defined in JS execution environment by default
-let fileName = document.getElementById("file-name");
-img.addEventListener("change", function (event) {
-	let upload = event.target.files[0].name;
-	fileName.innerText = upload;
-});
-
-function retrieve() {
-	fileName.innerText = localStorage.getItem("name") || "none";
+	reader.readAsDataURL(img.files[0]);
 }
 
-function onLoad() {
-	retrieve();
+// Main function
+function Main() {
+	retrieveName();
+
+	clockColor.value = defaultColor;
+
+	img.addEventListener("change", imgName);
+	clock.addEventListener("click", toggleClockProperties);
+	submit.addEventListener("click", onSubmit);
 }
 
-onLoad();
+Main();
