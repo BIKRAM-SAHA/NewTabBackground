@@ -7,7 +7,7 @@ const clockColor = document.querySelector(`.clock-color`);
 const clockPosition = document.querySelector(`.clock-position`);
 const defaultColor = "#31dd3c";
 
-const submit = document.getElementById(`submitBtn`);
+const submit = document.querySelector(`.submitBtn`);
 
 // Retrieving the name of the previously (if any) selected image
 function retrieveName() {
