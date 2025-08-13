@@ -1,130 +1,126 @@
+/* Universal */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+
+:root {
+	--main-color: #161b22;
+	--hover-color: #eee2ff;
+	--para-text-size: 16.5px;
+}
+
+/* Body */
 body {
 	width: 250px;
-	font-family: "Segoe UI", Tahoma, sans-serif;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	background: white;
-	color: #161b22;
-	border: 1px solid #161b22;
-	transition: background 0.2s linear;
-	position: relative;
+	font-family: "Segoe UI", Tahoma, sans-serif;
+	font-size: var(--para-text-size);
+	color: var(--main-color);
+	border: 1px solid var(--main-color);
 }
+
+/* Heading */
 h1 {
 	font-size: 30px;
 	text-decoration: underline;
-	margin: 10px 3px 10px 10px;
 	text-align: center;
-	padding-right: 50px;
+	margin: 10px;
 }
-main form {
-	display: flex;
-	flex-direction: column;
-}
-main form .form-group:nth-child(1) div:nth-child(1) {
-	margin-bottom: 10px;
-}
-main form .form-group div#file-choose {
-	margin-top: 9px;
-	margin-bottom: 10px;
-}
-main form .form-group:nth-child(1) {
-	flex-direction: row;
-	width: 100%;
-}
-main form .form-group:nth-child(1) label {
-	border: 1px solid;
-	cursor: pointer;
-	font-size: 16.5px;
-	padding: 5px 7px;
-	border-radius: 5px;
-}
-main form .form-group:nth-child(1) label:hover {
-	transition: 0.35s;
-	background: #eee2ff;
-}
-main form .form-group:nth-child(1) input {
-	display: none;
-}
-main form .form-group:nth-child(1) div {
-	text-align: start;
-	font-size: 16.5px;
+
+/* imgGroup */
+.imgGroup div {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-main form .form-group:nth-child(1),
-main form .form-group:nth-child(2) {
-	padding-left: 5px;
+.imgGroup div:nth-child(1) {
+	margin-bottom: 12px;
 }
-main form .form-group:nth-child(2) div.clock-box {
-	display: flex;
-	align-items: center;
-	font-size: 16.5px;
+.imgGroup input {
+	display: none;
 }
-main form .form-group:nth-child(2) div.clock-box input {
+.imgGroup label {
+	border: 1px solid;
+	cursor: pointer;
+	padding: 5px 7px;
+	border-radius: 5px;
+}
+.imgGroup label:hover {
+	transition: 0.35s;
+	background: var(--hover-color);
+}
+#file-choose {
+	margin-top: 9px;
+	margin-bottom: 5px;
+}
+
+/* clockGroup */
+.clock-box input {
 	height: 16px;
 	width: 16px;
 	margin-left: 15px;
 	cursor: pointer;
 }
-main form .form-group:nth-child(2) div.color-of-clock {
-	display: flex;
-	align-items: center;
-	margin-top: 5px;
+.color-of-clock {
+	margin-top: 2px;
 }
-main form .form-group:nth-child(2) div.color-of-clock label strong {
+.color-of-clock label {
 	margin-right: 10px;
-	font-size: 16.5px;
 }
-main form .form-group:nth-child(2) div.color-of-clock input {
+.color-of-clock input {
 	background: none;
 	border: none;
 	cursor: pointer;
 	height: 24px;
 }
-main form .form-group:nth-child(2) .form-group {
+.clockPropertyGroup {
 	margin-top: 5px;
 }
-main form .form-group:nth-child(2) .form-group span {
+.clockPropertyGroup span {
 	margin-right: 10px;
-	font-size: 16.5px;
 }
-main form .form-group:nth-child(2) .form-group select {
+.clockPropertyGroup select {
 	height: 20px;
 	padding-top: 2px;
 	cursor: pointer;
 }
-main form .form-group:nth-child(2) .form-group select:focus {
+.clockPropertyGroup select:focus {
 	outline: none;
 }
-main form .form-group:nth-child(3)#submit {
+
+/* common in imgGroup and clockGroup */
+.imgGroup,
+.clockGroup {
+	padding-left: 10px;
+}
+
+/* submitGroup */
+.submitGroup {
 	display: flex;
 	justify-content: center;
 	margin: 10px;
 }
-main form .form-group:nth-child(3)#submit a {
-	border-radius: 5px;
-	text-decoration: none;
-	font-size: 15px;
+.submitGroup a {
+	width: 80px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 80px;
 	border: 1px solid;
+	border-radius: 5px;
 	padding: 5px 7px;
 	cursor: pointer;
 }
-main form .form-group:nth-child(3)#submit a:hover {
-	color: #161b22;
-	transition: 0.5s;
-	background: #eee2ff;
+.submitGroup a:hover {
+	color: var(--main-color);
+	transition: 0.35s;
+	background: var(--hover-color);
 }
+
+/* toggle */
 .hide {
 	display: none;
 }
