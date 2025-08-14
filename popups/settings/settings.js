@@ -4,14 +4,28 @@ const img = document.getElementById("img");
 
 const clock = document.querySelector(`.clock`);
 const clockColor = document.querySelector(`.clock-color`);
-const clockPosition = document.querySelector(`.clock-position`);
 const defaultColor = "#31dd3c";
+const clockPosition = document.querySelector(`.clock-position`);
+const clockProperties = document.querySelectorAll(".clock-property");
 
 const submit = document.querySelector(`.submitBtn`);
 
 // Retrieving the name of the previously (if any) selected image
-function retrieveName() {
-	fileName.innerText = localStorage.getItem("name") || "None";
+function retrieveNameAndSetURL() {
+	fileName.innerText = localStorage.getItem("name") ?? "None";
+	// img.files[0] = localStorage.getItem("bgimg") ?? null;
+	// console.log(img.files[0]);
+}
+
+// Retrieving all of the data related to the clock (if any)
+function retrieveClockData() {
+	const clockData = JSON.parse(localStorage.getItem("clock")) ?? {};
+	if (clockData.value == "true") {
+		clock.checked = true;
+		clockProperties.forEach((e) => e.classList.toggle("hide"));
+		clockColor.value = clockData.color;
+		clockPosition.value = clockData.position;
+	}
 }
 
 // Displaying the name of the selected image
@@ -21,7 +35,7 @@ function imgName(e) {
 
 // Toggling clock properties if needed
 function toggleClockProperties() {
-	document.querySelectorAll(".clock-property").forEach((e) => e.classList.toggle("hide"));
+	clockProperties.forEach((e) => e.classList.toggle("hide"));
 }
 
 // On submit saving the details in local storage
@@ -47,9 +61,8 @@ function onSubmit(e) {
 
 // Main function
 function Main() {
-	retrieveName();
-
-	clockColor.value = defaultColor;
+	retrieveNameAndSetURL();
+	retrieveClockData();
 
 	img.addEventListener("change", imgName);
 	clock.addEventListener("click", toggleClockProperties);
