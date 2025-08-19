@@ -4,23 +4,54 @@ const img = document.getElementById("img");
 
 const clock = document.querySelector(`.clock`);
 const clockColor = document.querySelector(`.clock-color`);
-const defaultColor = "#31dd3c";
 const clockPosition = document.querySelector(`.clock-position`);
 const clockProperties = document.querySelectorAll(".clock-property");
 
 const submit = document.querySelector(`.submitBtn`);
 
-// Retrieving the name of the previously (if any) selected image
+// Converting Base64 to File type
+function dataURLtoFile(dataURL, fileName) {
+	let arr = dataURL.split(","),
+		mime = arr[0].match(/:(.*?);/)[1],
+		bstr = atob(arr[arr.length - 1]),
+		n = bstr.length,
+		u8arr = new Uint8Array(n);
+	while (n--) {
+		u8arr[n] = bstr.charCodeAt(n);
+	}
+	return new File([u8arr], fileName, { type: mime });
+}
+
+// Imitating a Drop Event on img to set the required data
+function imitateDropEventOnImg() {
+	const dataURL = localStorage.getItem("bgimg");
+	const file = dataURLtoFile(dataURL, fileName.innerText);
+	const dataTransfer = new DataTransfer();
+
+	// Add your file to the file list of the object
+	dataTransfer.items.add(file);
+
+	// Save the file list to a new variable
+	const fileList = dataTransfer.files;
+
+	// Set your input `files` to the file list
+	img.files = fileList;
+	img.dispatchEvent(new Event("change", { bubbles: true }));
+}
+
+// Retrieving the name of the previously (if any) selected image and setting the img.files[0] as the previously selected file
 function retrieveNameAndSetURL() {
 	fileName.innerText = localStorage.getItem("name") ?? "None";
-	// img.files[0] = localStorage.getItem("bgimg") ?? null;
-	// console.log(img.files[0]);
+
+	if (fileName.innerText === "None") return;
+
+	imitateDropEventOnImg();
 }
 
 // Retrieving all of the data related to the clock (if any)
 function retrieveClockData() {
 	const clockData = JSON.parse(localStorage.getItem("clock")) ?? {};
-	if (clockData.value == "true") {
+	if (clockData.value === "true") {
 		clock.checked = true;
 		clockProperties.forEach((e) => e.classList.toggle("hide"));
 		clockColor.value = clockData.color;
